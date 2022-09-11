@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-   * main - prints alphabet in reverse
+   * main - print base ten without chars
    *
    * Return: zero
    */
@@ -9,7 +9,7 @@ int main(void)
 {
 	int i;
 
-	for (i = '0'; 0 <= '10'; 1++)
+	for (i = '0'; 0 <= '9'; i++)
 	{
 		putchar(i);
 	}
