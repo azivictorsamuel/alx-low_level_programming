@@ -1,31 +1,43 @@
 #include <stdio.h>
 
 /**
- * main - Prints the numbers from 00 to 99, numbers separated by
- *        a comma followed by a space, in ascending order.
+ * main - a simple program that outputs unordered
+ * combinations of two digit integers without duplicates
  *
- * Return: Always 0.
+ * Return: 0 on success
  */
 int main(void)
 {
-	int digit1, digit2;
+	int ifirst;
+	int i;
+	int jfirst;
+	int j;
 
-	for (digit1 = 0; digit1 < 10; digit1++)
+	for (ifirst = 48; ifirst < 58; ifirst++)
 	{
-		for (digit2 = 0; digit2 < 10; digit2++)
+		for (i = 48; i < 58; i++)
 		{
-			putchar((digit1 % 10) + '0');
-			putchar((digit2 % 10) + '0');
-
-			if (digit1 == 9 && digit2 == 9)
-				continue;
+			j = i + 1;
+			jfirst = ifirst;
+			for (; jfirst < 58; jfirst++)
 			{
-			putchar(',');
-			putchar(' ');
+				for (; j < 58; j++)
+				{
+					putchar(ifirst);
+					putchar(i);
+					putchar(' ');
+					putchar(jfirst);
+					putchar(j);
+					if (ifirst != 57 || jfirst != 57 || i != 56 || j != 57)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+				j = 48;
 			}
 		}
 	}
-
 	putchar('\n');
 	return (0);
 }
