@@ -1,31 +1,24 @@
 #include "main.h"
 
 /**
- * more_numbers - prints 10 times the numbers from 0-14.
+ * more_numbers - check the code for alx School students.
  *
+ * Return: Always 0.
  */
 void more_numbers(void)
 {
-	int i, j;
+	int num, i;
 
-	i = 0;
-	while (i <= 10)
+	for (i = 0; i <= 9; i++)
 	{
-		j = 0;
-		while (j <= 14)
+		for (num = 0; num < 15; num++)
 		{
-			if (j <= 9)
-			{
-				_putchar('0' + j);
-			}
-			else
-			{
-				_putchar('0' + j / 10);
-				_putchar('0' + j % 10);
-			}
-			j++;
+			if (num > 9)
+				_putchar(num / 10 + '0');
+
+			_putchar(num % 10 + '0');
 		}
-		_putchar('\n');
-		i++;
+
+	_putchar('\n');
 	}
 }
