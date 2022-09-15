@@ -2,37 +2,26 @@
 #lnclude <stdio.h>
 
 /**
- * main - fizzbuzz algorithm.
+ * main - check the code for Holberton School students.
  *
- * Return: zero
+ * Return: Always 0.
  */
 int main(void)
 {
-	int i;
+	int num;
 
-	for (i = 1; i <= 100; i++)
+	for (num = 1; num < 101; num++)
 	{
-		if (i % 3 == 0 && i % 5 != 0)
-		{
-			printf("Fizz");
-		}
-		else if (i % 5 == 0 && i % 3 != 0)
-		{
-			printf("Buzz");
-		}
-		else if (i % 15 == 0)
-		{
+		if (num % 15 == 0)
 			printf("FizzBuzz");
-		}
+		else if (num % 3 == 0)
+			printf("Fizz");
+		else if (num % 5 == 0)
+			printf("Buzz");
 		else
-		{
-			printf("%d", i);
-		}
-		if (i == 100)
-		{
-			break;
-		}
-		else
+			printf("%d", num);
+
+		if (num != 100)
 			printf(" ");
 	}
 	printf("\n");
