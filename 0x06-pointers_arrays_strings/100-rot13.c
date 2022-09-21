@@ -1,26 +1,25 @@
 #include "main.h"
 
 /**
- * *rot13 - encodes a string using rot13.
- *
- * @str: string.
- * Return: string.
+ * rot13 - check the code for Holberton School students.
+ * @str: String to be converted
+ * Return: Always 0.
  */
 char *rot13(char *str)
 {
-	int i;
+	char regALPHA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char altALPHA[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((*(str + i) >= 'a' && *(str + i) < 'n')
-				|| (*(str + i) >= 'A' && *(str + i) < 'N'))
+		for (j = 0; regALPHA[j] != '\0'; j++)
 		{
-			*(str + i) += 13;
-		}
-		else if ((*(str + i) >= 'n' && *(str + i) <= 'z')
-				|| (*(str + i) >= 'N' && *(str + i) <= 'Z'))
-		{
-			*(str + i) -= 13;
+			if (str[i] == regALPHA[j])
+			{
+				str[i] = altALPHA[j];
+				break;
+			}
 		}
 	}
 	return (str);
