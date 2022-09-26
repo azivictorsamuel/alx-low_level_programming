@@ -1,39 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * *_strpbrk - searches a string for any of a set of bytes.
- *
- * @s: string.
- * @accept: bytes.
- * Return: pointer to the byte in s.
+ * _strstr - check the code for Holberton School students.
+ * @haystack: Array to be searched
+ * @needle: Target string
+ * Return: Always 0.
  */
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	if (s == NULL || accept == NULL)
+	int i, j;
+
+	if (needle[0] == '\0')
+		return (haystack);
+
+	for (i = 0; haystack[i]; i++)
 	{
-		return (NULL);
+		for (j = 0; needle[j]; j++)
+		{
+			if (haystack[i + j] != needle[j])
+				break;
+
+			if (needle[i + j] == '\0')
+				return (haystack + i);
+		}
 	}
 
-	while (*s)
-	{
-		if (_strchr(accept, *s))
-			return (s);
-		s++;
-	}
-	return (NULL);
-}
-/**
- * *_strchr - locates a character in a string.
- *
- * @s: string.
- * @c: character to be located.
- * Return: pointer to first occurrence of NULL if no character found.
- */
-char *_strchr(char *s, char c)
-{
-	do {
-		if (*s == c)
-			return (s);
-	} while (*s++);
-	return (NULL);
+	return ('\0');
 }
