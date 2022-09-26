@@ -1,30 +1,21 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * _strstr - check the code for Holberton School students.
- * @haystack: Array to be searched
- * @needle: Target string
+ * _strpbrk - check the code for Holberton School students.
+ * @s: The array to be searched
+ * @accept: Target bytes from searching
  * Return: Always 0.
  */
-char *_strstr(char *haystack, char *needle)
+char *_strpbrk(char *s, char *accept)
 {
 	int i, j;
 
-	if (needle[0] == '\0')
-		return (haystack);
-
-	for (i = 0; haystack[i]; i++)
+	for (i = 0; accept[i]; i++)
 	{
-		for (j = 0; needle[j]; j++)
-		{
-			if (haystack[i + j] != needle[j])
-				break;
-
-			if (needle[i + j] == '\0')
-				return (haystack + i);
-		}
+		for (j = 0; accept[j]; j++)
+			if (accept[j] == s[i])
+				return (s + i);
 	}
 
-	return ('\0');
+	return (0);
 }
