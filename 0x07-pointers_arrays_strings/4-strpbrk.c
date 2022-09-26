@@ -1,21 +1,39 @@
 #include "main.h"
 
 /**
- * _strpbrk - check the code for Holberton School students.
- * @s: The array to be searched
- * @accept: Target bytes from searching
- * Return: Always 0.
+ * *_strpbrk - searches a string for any of a set of bytes.
+ *
+ * @s: string.
+ * @accept: bytes.
+ * Return: pointer to the byte in s.
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j;
-
-	for (i = 0; accept[i]; i++)
+	if (s == NULL || accept == NULL)
 	{
-		for (j = 0; accept[j]; j++)
-			if (accept[j] == s[i])
-				return (s + i);
+		return (NULL);
 	}
 
-	return (0);
+	while (*s)
+	{
+		if (_strchr(accept, *s))
+			return (s);
+		s++;
+	}
+	return (NULL);
+}
+/**
+ * *_strchr - locates a character in a string.
+ *
+ * @s: string.
+ * @c: character to be located.
+ * Return: pointer to first occurrence of NULL if no character found.
+ */
+char *_strchr(char *s, char c)
+{
+	do {
+		if (*s == c)
+			return (s);
+	} while (*s++);
+	return (NULL);
 }
